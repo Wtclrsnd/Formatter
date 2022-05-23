@@ -21,6 +21,15 @@ public class Formatter {
     public init(pattern: String) {
         self.pattern = pattern
     }
+}
+
+extension Formatter: InputMaskProtocol {
+    public func mask(_ textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
+        let string = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
+        let formatted = formattedString(from: string)
+        textField.text = formatted
+        return formatted.isEmpty
+    }
 
     public func formattedString(from plainString: String) -> String {
         guard !pattern.isEmpty else { return plainString }
@@ -62,14 +71,5 @@ public class Formatter {
         }
 
         return String(formatted)
-    }
-}
-
-extension Formatter: InputMaskProtocol {
-    public func mask(_ textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
-        let string = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
-        let formatted = formattedString(from: string)
-        textField.text = formatted
-        return formatted.isEmpty
     }
 }
