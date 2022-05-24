@@ -9,7 +9,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    private var formatter: Formatter? = nil
+    private var formatter: Formatter?
+    private var numberFormatter: NumberFormatter?
+
+    private let pattern: String = "A###-***"
+    private let numberPattern: String = "DDD+DD-DD"
 
     private lazy var textField: UITextField = {
         var textField = UITextField()
@@ -29,7 +33,10 @@ class ViewController: UIViewController {
 
         textField.delegate = self
         setUpUI()
-        formatter = Formatter(pattern: "+# (###) ###-##-##")
+        formatter = Formatter(pattern: pattern)
+        numberFormatter = NumberFormatter(pattern: numberPattern)
+
+
     }
 
     private func setUpUI() {
@@ -46,7 +53,9 @@ class ViewController: UIViewController {
 
 extension ViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard let formatter = formatter else { return true }
-        return formatter.mask(textField, range: range, replacementString: string)
+//        guard let formatter = formatter else { return true }
+//        return formatter.mask(textField, range: range, replacementString: string)
+        guard let numberFormatter = numberFormatter else { return true }
+        return numberFormatter.mask(textField, range: range, replacementString: string)
     }
 }

@@ -15,6 +15,7 @@
 		7243F523283B6F0100CA7090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7243F521283B6F0100CA7090 /* LaunchScreen.storyboard */; };
 		7243F52B283B82A200CA7090 /* Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243F52A283B82A200CA7090 /* Formatter.swift */; };
 		7243F52D283B830000CA7090 /* InputMaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243F52C283B830000CA7090 /* InputMaskProtocol.swift */; };
+		7243F52F283BC75E00CA7090 /* NumberFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7243F52E283BC75E00CA7090 /* NumberFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		7243F524283B6F0100CA7090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7243F52A283B82A200CA7090 /* Formatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formatter.swift; sourceTree = "<group>"; };
 		7243F52C283B830000CA7090 /* InputMaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputMaskProtocol.swift; sourceTree = "<group>"; };
+		7243F52E283BC75E00CA7090 /* NumberFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				7243F518283B6EFB00CA7090 /* SceneDelegate.swift */,
 				7243F51A283B6EFB00CA7090 /* ViewController.swift */,
 				7243F52C283B830000CA7090 /* InputMaskProtocol.swift */,
+				7243F52E283BC75E00CA7090 /* NumberFormatter.swift */,
 				7243F52A283B82A200CA7090 /* Formatter.swift */,
 				7243F51C283B6EFB00CA7090 /* Main.storyboard */,
 				7243F51F283B6F0100CA7090 /* Assets.xcassets */,
@@ -145,6 +148,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7243F51B283B6EFB00CA7090 /* ViewController.swift in Sources */,
+				7243F52F283BC75E00CA7090 /* NumberFormatter.swift in Sources */,
 				7243F517283B6EFB00CA7090 /* AppDelegate.swift in Sources */,
 				7243F52B283B82A200CA7090 /* Formatter.swift in Sources */,
 				7243F52D283B830000CA7090 /* InputMaskProtocol.swift in Sources */,

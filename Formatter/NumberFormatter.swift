@@ -1,5 +1,5 @@
 //
-//  Formatter.swift
+//  NumberFormatter.swift
 //  Formatter
 //
 //  Created by Emil Shpeklord on 23.05.2022.
@@ -7,14 +7,13 @@
 
 import UIKit
 
-final class Formatter {
+final class NumberFormatter {
 
     // MARK: - Properties
 
     private var pattern: String
 
-    private let digit: Character = "#"
-    private let alphabetic: Character = "*"
+    private let digit: Character = "D"
 
     // MARK: - Lifecycle
 
@@ -23,7 +22,7 @@ final class Formatter {
     }
 }
 
-extension Formatter: InputMaskProtocol {
+extension NumberFormatter: InputMaskProtocol {
     public func mask(_ textField: UITextField, range: NSRange, replacementString string: String) -> Bool {
         let string = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) ?? ""
         let formatted = formattedString(from: string)
@@ -35,7 +34,7 @@ extension Formatter: InputMaskProtocol {
         guard !pattern.isEmpty else { return plainString }
 
         let pattern: [Character] = Array(self.pattern) // making array of chars
-        let allowedCharachters = CharacterSet.alphanumerics // allows only unicode chars
+        let allowedCharachters = CharacterSet.decimalDigits // allows only digits
         let filteredInput = String(plainString.unicodeScalars.filter(allowedCharachters.contains))
         // takin a unicode representation of string
         // filtering the string
@@ -47,16 +46,11 @@ extension Formatter: InputMaskProtocol {
 
         while inputIndex < input.count {
             let inputCharacter = input[inputIndex]
-            let allowed: CharacterSet
+            let allowed: CharacterSet = .decimalDigits
 
             guard patternIndex < pattern.count else { break } // stops cycle when users string is longer than pattern
 
-            switch pattern[patternIndex] { // checks mask char
-            case digit:
-                allowed = .decimalDigits
-            case alphabetic:
-                allowed = .letters
-            default:
+            if pattern[patternIndex] != digit {
                 formatted.append(pattern[patternIndex])
                 patternIndex += 1
                 continue
