@@ -46,7 +46,6 @@ extension NumberFormatter: InputMaskProtocol {
 
         while inputIndex < input.count {
             let inputCharacter = input[inputIndex]
-            let allowed: CharacterSet = .decimalDigits
 
             guard patternIndex < pattern.count else { break } // stops cycle when users string is longer than pattern
 
@@ -56,7 +55,7 @@ extension NumberFormatter: InputMaskProtocol {
                 continue
             }
 
-            guard inputCharacter.unicodeScalars.allSatisfy(allowed.contains) else { // checks if user char is allowed
+            guard inputCharacter.unicodeScalars.allSatisfy(allowedCharachters.contains) else { // checks if user char is allowed
                 inputIndex += 1
                 continue
             }
